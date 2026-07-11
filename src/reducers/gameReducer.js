@@ -26,7 +26,7 @@ const handleGuess = (state, guess) => {
 
 export function gameReducer(state, action) {
   switch (action.type) {
-    case "GAME_START":
+    case "GAME_RESET":
       return getInitialState();
 
     case "GUESS_MADE":

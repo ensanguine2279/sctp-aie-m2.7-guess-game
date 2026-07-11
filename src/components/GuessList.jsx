@@ -1,7 +1,12 @@
+import { useGame } from "../contexts/GameContextInstance";
+
 import GuessItem from "./GuessItem";
+
 import styles from "./GuessList.module.css";
 
-function GuessList({ guesses, secretNumber }) {
+function GuessList() {
+  const { guesses, secretNumber } = useGame();
+
   // If there are no guesses, don't render the list at all.
   if (guesses.length === 0) return null;
 

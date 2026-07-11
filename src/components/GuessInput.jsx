@@ -1,8 +1,13 @@
 import { useState } from "react";
+import { useGame } from "../contexts/GameContextInstance";
+
 import styles from "./GuessInput.module.css";
 
-function GuessInput({ onGuess, disabled }) {
+function GuessInput() {
+  const { status, makeGuess } = useGame();
   const [inputValue, setInputValue] = useState("");
+
+  const isDisabled = status !== "playing";
 
   const inputChangeHandler = (e) => {
     setInputValue(e.target.value);
@@ -14,7 +19,7 @@ function GuessInput({ onGuess, disabled }) {
     const guess = parseInt(inputValue, 10);
     if (isNaN(guess)) return;
 
-    onGuess(guess);
+    makeGuess(guess);
     setInputValue("");
   };
 
@@ -29,9 +34,9 @@ function GuessInput({ onGuess, disabled }) {
           inputMode="numeric"
           value={inputValue}
           onChange={inputChangeHandler}
-          disabled={disabled}
+          disabled={isDisabled}
         />
-        <button className={styles.button} type="submit" disabled={disabled}>
+        <button className={styles.button} type="submit" disabled={isDisabled}>
           Guess
         </button>
       </div>
