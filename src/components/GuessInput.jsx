@@ -4,7 +4,7 @@ import { useGame } from "../contexts/GameContextInstance";
 import styles from "./GuessInput.module.css";
 
 function GuessInput() {
-  const { status, makeGuess } = useGame();
+  const { status, makeGuess, giveUpGame } = useGame();
   const [inputValue, setInputValue] = useState("");
 
   const isDisabled = status !== "playing";
@@ -38,6 +38,14 @@ function GuessInput() {
         />
         <button className={styles.button} type="submit" disabled={isDisabled}>
           Guess
+        </button>
+
+        <button
+          className={styles.button}
+          onClick={giveUpGame}
+          disabled={isDisabled}
+        >
+          Give Up
         </button>
       </div>
     </form>

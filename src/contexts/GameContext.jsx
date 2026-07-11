@@ -15,6 +15,10 @@ export function GameProvider({ children }) {
     dispatch({ type: "GAME_RESET" });
   };
 
+  const giveUpGame = () => {
+    dispatch({ type: "GIVE_UP" });
+  };
+
   return (
     <GameContext.Provider
       value={{
@@ -25,6 +29,7 @@ export function GameProvider({ children }) {
 
         resetGame,
         makeGuess,
+        giveUpGame,
       }}
     >
       {children}
