@@ -2,7 +2,7 @@
 
 ### Starting Point
 
-Use the `guess-game` starter project provided alongside this lesson. It already includes everything you built in Coaching 2.4, plus scoring:
+Use the `guess-game` starter project provided alongside this lesson. It already includes everything you built in [Coaching 2.4](https://github.com/ensanguine2279/sctp-aie-m2.4-guess-game), plus scoring:
 
 - A secret number generated randomly between 1 and 20
 - A score that starts at 20 and decreases by 1 with each wrong guess
