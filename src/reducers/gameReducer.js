@@ -32,6 +32,9 @@ export function gameReducer(state, action) {
     case "GUESS_MADE":
       return handleGuess(state, action.payload);
 
+    case "GIVE_UP":
+      return { ...state, status: "lost" };
+
     default:
       return state;
   }
